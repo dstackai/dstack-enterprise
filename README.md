@@ -4,7 +4,7 @@
 with enterprise features such as a web user interface, advanced team management, and more.
 It’s fully compatible with the open-source `dstack` CLI and API.
 
-Request a free 60-day trial of `dstack` Enterprise [here](`dstack` Enterprise).
+Request a free 60-day trial of `dstack` Enterprise [here](https://tally.so/r/3jBXP6).
 
 ## Installation
 
