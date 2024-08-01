@@ -44,12 +44,14 @@ The history of `dstack` Enterprise releases can be found in the [`dstackai/dstac
 `dstack` is backward compatible within its major version. For example, if `dstack` Enterprise
 is `0.18.1-v1`, the version of CLI or API must start with `0.18`.
 
-## Configuring environment variables
+## Environment variables
 
 Here's the list of environment variables which you can override:
 
-* `DSTACK_SERVER_DIR` – (Optional) The path to the directory where the dstack server stores the state. Defaults to `/root/.dstack/server`.
-* `DSTACK_SERVER_ADMIN_TOKEN` – (Optional) The default token of the admin user. By default, it's generated randomly at the first startup.
+- `DSTACK_SERVER_DIR` – (Optional) The path to the directory where the `dstack` server stores the state. Defaults to `/root/.dstack/server`.
+- `DSTACK_DATABASE_URL` – (Optional) The database URL to use instead of default SQLite. Currently `dstack` supports Postgres. Example: `postgresql+asyncpg://myuser:mypassword@localhost:5432/mydatabase`.
+- `DSTACK_SERVER_ADMIN_TOKEN` – (Optional) The default token of the `admin` user. By default, it's generated randomly
+  at the first startup.
 
 ## Configuring backends
 
@@ -71,14 +73,16 @@ Upon restart, it will resume tracking their states.
 
 ## Persisting state
 
-`dstack` stores its state in the ``$DSTACK_SERVER_DIR/data`` folder (by default `/root/.dstack/server/data`) with SQLite.
+By default, `dstack` stores its state in `~/.dstack/server/data` using SQLite.
+To use a database, set the `DSTACK_DATABASE_URL` environment variable (see below).
 
-### Persisting state with Litestream
+### Replicate SQLite state via Litestream
 
-If required, `dstack` can automatically replicate its state to a cloud object storage via [Litestream](https://litestream.io/getting-started/) by configuring the
-necessary environment variables.
+If not using `DSTACK_DATABASE_URL`, you can still replicate the state to cloud object storage using Litestream. To do
+this, you need to set the following environment variables.
 
-* `LITESTREAM_REPLICA_URL` - The url of the cloud object storage. Examples: `s3://<bucket name>/<path>`, `gcs://<bucket name>/<path>`, `abs://<storage account>@<container name>/<path>`, etc.
+- `LITESTREAM_REPLICA_URL` - The url of the cloud object storage.
+  Examples: `s3://<bucket-name>/<path>`, `gcs://<bucket-name>/<path>`, `abs://<storage-account>@<container-name>/<path>`, etc.
 
 #### AWS S3
 
@@ -126,10 +130,8 @@ During deployment, it’s important to configure `DSTACK_SERVER_ADMIN_TOKEN`. Th
 
 ### Authentication
 
-Currently, `dstack` Enterprise allows authentication using personal access tokens. Each user has their personal token, which can be found or changed in the user's account settings. This token must be used for authentication to access both the UI, CLI, or API.
+Currently, `dstack` Enterprise allows authentication using personal user tokens. Each user has their own token, which can be found or changed in the user's account settings. This token must be used for authentication to access the control plane, CLI, or API.
 
-### Managing projects
+### Projects
 
-Projects group and isolate users and resources. It's possible to create multiple projects, configure different clouds for each project, and grant different users access to these projects.
-
-Once a project is configured, a user with `Admin` role can manage the project members.
+Projects enable the isolation of different teams and their resources. Check out the [Projects](https://github.com/dstackai/dstack-enterprise/wiki/Projects) wiki page for more details on how to manage projects.
