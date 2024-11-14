@@ -20,7 +20,7 @@ First you need to create a private SSO integration for `dstack` Enterprise in yo
     * **App integration name**: dstack Enterprise
     * **Grant type**: Authorization Code
     * **Sing-in redirect URIs**: `{DSTACK_SERVER_URL}/auth/okta/callback`, e.g. `https://enterprise-example.dstack.ai/auth/okta/callback`
-    * **Sign-out redirect URIs**: `{DSTACK_SERVER_URL}`, e.g. `https://enterprise-example.dstack.ai/`
+    * **Sign-out redirect URIs**: `{DSTACK_SERVER_URL}`, e.g. `https://enterprise-example.dstack.ai`
     * **Assignments**: Select "Allow everyone in your organization to access" if you have no other preferences.
 
 ## Configure Okta on the `dstack` server
@@ -29,3 +29,6 @@ To enable Okta Single Sign-On on the `dstack` server, you need to set the follow
 * `DSTACK_OKTA_DOMAIN` - the domain of your Okta organization, e.g. `dev-123456.okta.com`.
 * `DSTACK_OKTA_CLIENT_ID` - the Client ID of the `dstack` Enterprise application created in the previous step.
 * `DSTACK_OKTA_SECRET` - the Secret of the `dstack` Enterprise application created in the previous step.
+
+Also ensure that you have the `DSTACK_SERVER_URL` set to an URL of the dstack Enterprise installation,
+if it's different from the default `http://localhost:3000`, e.g. `https://enterprise-example.dstack.ai`.
