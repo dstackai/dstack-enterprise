@@ -4,6 +4,8 @@
 
 After signing in with Entra ID for the first time, a new `dstack` user account is created and linked to the Entra ID account. Subsequently, users can log in to `dstack` using their Entra ID account without entering any `dstack`-specific credentials.
 
+**Note**: `dstack` automatically links Entra ID accounts to existing `dstack` users instead of creating new users if their emails match. Global admins should assign Entra ID emails to `dstack` users if automatic linking is desirable.
+
 The `dstack` Entra ID integration uses the [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview) with the OAuth 2.0 Authorization Code flow.
 
 This guide shows how to set up `dstack` Enterprise with Entra ID.
