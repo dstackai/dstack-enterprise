@@ -34,5 +34,4 @@ To enable Entra ID Single Sign-On on the `dstack` server, you need to set the fo
 * `DSTACK_ENTRA_CLIENT_ID` - the Application (client) ID of the `dstack` Enterprise application created in the previous step.
 * `DSTACK_ENTRA_CLIENT_SECRET` - the Client Secret of the `dstack` Enterprise application created in the previous step.
 
-Also, ensure that you have `DSTACK_SERVER_URL` set to the URL of the `dstack` Enterprise installation if it's different from the default `http://localhost:3000`, e.g., `https://enterprise-example.dstack.ai`.
-
+Ensure that you've set `DSTACK_SERVER_URL` environment variable to the URL of the `dstack` Enterprise installation if it's different from the default `http://localhost:3000`, e.g., `DSTACK_SERVER_URL=https://enterprise-example.dstack.ai`. If the server is available on multiple domains, specify additional server URLs allowed for Entra login via the `DSTACK_ENTRA_EXTRA_URLS` environment variable, e.g. `DSTACK_ENTRA_EXTRA_URLS=https://enterprise2.dstack.ai,https://enterprise3.dstack.ai`.
