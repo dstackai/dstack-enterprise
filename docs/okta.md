@@ -1,8 +1,10 @@
 # dstack Enterprise Okta integration
 
-`dstack` Enterprise supports Single Sign-On via [Okta Workforce Identity Cloud](https://www.okta.com/workforce-identity/).
-When Okta integration is configured, the `dstack` login page will display the **Sign in with Okta** button.
+`dstack` Enterprise supports Single Sign-On via [Okta Workforce Identity Cloud](https://www.okta.com/workforce-identity/). When Okta integration is configured, the `dstack` login page will display the **Sign in with Okta** button.
+
 After signing in with Okta for the first time, a new `dstack` user account is created and linked to the Okta account. Subsequently, users can log in to `dstack` using their Okta account without entering any `dstack`-specific credentials.
+
+**Note**: `dstack` automatically links Okta accounts to existing `dstack` users instead of creating new users if their emails match. Global admins should assign Okta emails to `dstack` users if automatic linking is desirable.
 
 The `dstack` Okta integration uses the [OpenID Connect standard](https://developer.okta.com/docs/concepts/oauth-openid/) with the [Authorization Code flow](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) as recommended by Okta.
 
