@@ -1,6 +1,6 @@
 # dstack Enterprise Google integration
 
-`dstack` Enterprise supports Single Sign-On via [Google](https://www.okta.com/workforce-identity/). When Okta integration is configured, the `dstack` login page will display the **Sign in with Okta** button.
+`dstack` Enterprise supports Single Sign-On via [Google](https://developers.google.com/identity/gsi/web/guides/overview). When Google integration is configured, the `dstack` login page will display the **Sign in with Google** button.
 
 After signing in with Google for the first time, a new `dstack` user account is created and linked to the Google account. Subsequently, users can log in to `dstack` using their Google account without entering any `dstack`-specific credentials.
 
@@ -32,7 +32,7 @@ The `dstack` Google integration uses the OAuth 2.0 and OpenID Connect (OIDC) sta
 
 ## Configure Google on the `dstack` server
 
-To enable Okta Single Sign-On on the `dstack` server, you need to set the following environment variables:
+To enable Google Single Sign-On on the `dstack` server, you need to set the following environment variables:
 * `DSTACK_GOOGLE_PROJECT_ID` - your GCP project ID, e.g. `my-dstack-enterprise-project`.
 * `DSTACK_GOOGLE_CLIENT_ID` - the **Client ID** of the `dstack` Enterprise application created in the previous step.
 * `DSTACK_GOOGLE_CLIENT_SECRET` - the **Client secret** of the `dstack` Enterprise application created in the previous step.
